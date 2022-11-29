@@ -1,29 +1,31 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "total_war",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Total War",
+  "description": "A tech and military mod for Minecraft",
   "authors": [
-    "Me!"
+    "Justin Hu <justin.hu@alumni.ubc.ca>"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/JustinHuPrime/MCTotalWar#readme",
+    "sources": "https://github.com/JustinHuPrime/MCTotalWar"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "GPL-3.0-or-later",
+  "icon": "assets/total_war/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "ca.zootron.total_war.TotalWar"
+    ],
+    "fabric-datagen": [
+      "ca.zootron.total_war.datagen.TotalWarDatagenClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
   ],
 
   "depends": {
@@ -31,8 +33,5 @@
     "fabric-api": "*",
     "minecraft": "~1.19",
     "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }
