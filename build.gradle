@@ -44,6 +44,9 @@ processResources {
 	filesMatching("fabric.mod.json") {
 		expand "version": project.version
 	}
+	filesMatching("en_us.json") {
+		expand "version": project.version
+	}
 }
 
 loom {

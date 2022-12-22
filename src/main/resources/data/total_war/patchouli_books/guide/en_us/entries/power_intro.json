@@ -1,0 +1,9 @@
+{
+  "name": "Introduction to Power",
+  "icon": "minecraft:redstone",
+  "category": "total_war:power",
+  "pages": [
+    "Add info about power"
+  ],
+  "priority": true
+}
