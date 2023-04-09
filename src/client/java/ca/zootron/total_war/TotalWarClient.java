@@ -7,10 +7,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TotalWarClient implements ClientModInitializer {
-    public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
+	public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 
-    @Override
-    public void onInitializeClient() {
-        LOGGER.info("Initialized {} client", MODID);
-    }
+	@Override
+	public void onInitializeClient() {
+		LOGGER.info("Initialized {} client", MODID);
+	}
 }

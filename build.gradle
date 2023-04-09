@@ -15,21 +15,45 @@ repositories {
 	maven {
 		url 'https://maven.blamejared.com'
 	}
-	// for Parchment mappings
-	maven {
-		url "https://maven.parchmentmc.net/"
-		content {
-			includeGroup "org.parchmentmc.data"
-		}
-	}
+}
+
+loom {
+    splitEnvironmentSourceSets()
+
+    mods {
+        modid {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+    runs {
+        // This adds a new gradle task that runs the datagen API: "gradlew runDatagen"
+        datagen {
+            inherit server
+            name "Data Generation"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+            vmArg "-Dfabric-api.datagen.modid=total_war"
+ 
+            runDir "build/datagen"
+        }
+    }
+}
+
+// Add the generated resources to the main source set
+sourceSets {
+    main {
+        resources {
+            srcDirs += [
+                    'src/main/generated'
+            ]
+        }
+    }
 }
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.layered() {
-		officialMojangMappings()
-		parchment("org.parchmentmc.data:parchment-1.19.3:2023.03.12@zip")
-	}
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
@@ -46,37 +70,6 @@ processResources {
 	}
 	filesMatching("en_us.json") {
 		expand "version": project.version
-	}
-}
-
-loom {
-	splitEnvironmentSourceSets()
-}
-
-sourceSets {
-	main {
-		java {
-			srcDir "src/main"
-		}
-		resources {
-			srcDir "src/generated/resources"
-		}
-	}
-}
-
-loom {
-	runs {
-		datagenClient {
-			client()
-			name "Data Generation"
-			vmArg "-Dfabric-api.datagen"
-			vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}"
-			vmArg "-Dfabric-api.datagen.strict-validation=true"
-
-			ideConfigGenerated = true
-			runDir "build/datagen"
-			source sourceSets.client
-		}
 	}
 }
 
