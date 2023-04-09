@@ -1,39 +1,39 @@
 {
-	"schemaVersion": 1,
-	"id": "total_war",
-	"version": "${version}",
-	"name": "Total War",
-	"description": "Industrial technology and war",
-	"authors": [
-		"Justin Hu <justin.hu@alumni.ubc.ca>"
-	],
-	"contact": {
+  "schemaVersion": 1,
+  "id": "total_war",
+  "version": "${version}",
+  "name": "Total War",
+  "description": "Industrial technology and war",
+  "authors": [
+    "Justin Hu <justin.hu@alumni.ubc.ca>"
+  ],
+  "contact": {
     "homepage": "https://github.com/JustinHuPrime/MCTotalWar#readme",
     "sources": "https://github.com/JustinHuPrime/MCTotalWar"
   },
-	"license": "GPL-3.0-or-later",
-	"icon": "assets/total_war/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"ca.zootron.total_war.TotalWar"
-		],
-		"client": [
-			"ca.zootron.total_war.TotalWarClient"
-		],
-		"fabric-datagen": [
-			"ca.zootron.total_war.TotalWarDataGenerator"
-		]
-	},
-	"mixins": [
-	],
-	"depends": {
-		"fabricloader": ">=0.14.19",
-		"minecraft": "~1.19.3",
-		"java": ">=17",
-		"fabric-api": "*",
-		"patchouli": ">=1.19.3-78-FABRIC"
-	},
-	"suggests": {
-	}
+  "license": "GPL-3.0-or-later",
+  "icon": "assets/total_war/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "ca.zootron.total_war.TotalWar"
+    ],
+    "client": [
+      "ca.zootron.total_war.TotalWarClient"
+    ],
+    "fabric-datagen": [
+      "ca.zootron.total_war.TotalWarDataGenerator"
+    ]
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "minecraft": "~1.19.3",
+    "java": ">=17",
+    "fabric-api": "*",
+    "patchouli": ">=1.19.3-78-FABRIC"
+  },
+  "suggests": {
+  }
 }

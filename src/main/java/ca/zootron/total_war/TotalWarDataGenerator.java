@@ -1,6 +1,5 @@
 package ca.zootron.total_war;
 
-import ca.zootron.total_war.TotalWar;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import org.slf4j.Logger;
