@@ -16,4 +16,10 @@ Macerator
 
 Compressor
 
+Cutter
+
 Crafter
+
+Chemical Reactor
+
+Electrolyzer

@@ -15,3 +15,15 @@ A power meter is rated for some power range, and reports how much power is flowi
 ## Switching
 
 A power switch is rated for some power range, and conditionally connects two networks.
+
+## Cables
+
+Cables in Total War can be made of copper, aluminium, or superconductor. A cable has a specific voltage it's able to support, if used beyond which it will start fires and refuse to carry energy.
+
+Copper cables can only be manufactured up to the MV tier
+
+Aluminium cables can go up to EV
+
+Bundle four lower-tier cables together to get a higher tier cable
+
+Superconductor cables can handle up to SV, but have no lower voltage tier variants
