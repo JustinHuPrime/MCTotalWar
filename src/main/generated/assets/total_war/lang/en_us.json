@@ -1,7 +1,11 @@
 {
   "book.total_war.landing_text": "A tech and military mod for Minecraft",
-  "book.total_war.subtitle": "For ${version}",
+  "book.total_war.subtitle": "For Total War version ${version}",
   "item.total_war.cannon_shell_empty": "Cannon Shell (Empty)",
+  "item.total_war.cannon_shell_explosive": "Cannon Shell (Explosive)",
+  "item.total_war.cannon_shell_gas": "Cannon Shell (Gas)",
+  "item.total_war.cannon_shell_shrapnel": "Cannon Shell (Shrapnel)",
+  "item.total_war.cannon_shell_smoke": "Cannon Shell (Smoke)",
   "item.total_war.guidebook": "Total War Guidebook",
   "itemGroup.total_war.group": "Total War"
 }
