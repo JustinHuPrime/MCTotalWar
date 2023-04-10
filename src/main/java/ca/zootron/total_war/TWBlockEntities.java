@@ -22,9 +22,10 @@ package ca.zootron.total_war;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.zootron.total_war.blockentities.CreativeGeneratorBlockEntity;
 import ca.zootron.total_war.blockentities.ResistorBlockEntity;
+import ca.zootron.total_war.blocks.CreativeGeneratorBlock;
 import ca.zootron.total_war.blocks.ResistorBlock;
-import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -53,6 +54,12 @@ public abstract class TWBlockEntities {
   static {
     FlammableBlockRegistry.getDefaultInstance().add(RESISTOR.block().getBlock(), 5, 5);
   }
+
+  public static final BlockEntityRecord<CreativeGeneratorBlockEntity> CREATIVE_GENERATOR = blockEntity(
+      "Creative Generator", "creative_generator",
+      new CreativeGeneratorBlock(FabricBlockSettings.of(Material.STONE).strength(-1.0f, 3600000.0f).dropsNothing()
+          .allowsSpawning((state, view, pos, entity) -> false)),
+      CreativeGeneratorBlockEntity::new);
 
   public static <T extends BlockEntity, U extends Block & BlockEntityProvider> BlockEntityRecord<T> blockEntity(
       String englishName, String id,
