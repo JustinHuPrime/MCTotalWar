@@ -27,6 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.zootron.total_war.datagen.TWBlockLootProvider;
+import ca.zootron.total_war.datagen.TWBlockTagProvider;
 import ca.zootron.total_war.datagen.TWLangProvider;
 import ca.zootron.total_war.datagen.TWModelProvider;
 
@@ -42,6 +43,7 @@ public class TotalWarDataGenerator implements DataGeneratorEntrypoint {
 
         Pack pack = gen.createPack();
         pack.addProvider(TWBlockLootProvider::new);
+        pack.addProvider(TWBlockTagProvider::new);
         pack.addProvider(TWLangProvider::new);
         pack.addProvider(TWModelProvider::new);
 
