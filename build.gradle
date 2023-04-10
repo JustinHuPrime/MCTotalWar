@@ -12,9 +12,9 @@ group = project.maven_group
 
 repositories {
 	// for Patchouli
-	maven {
-		url 'https://maven.blamejared.com'
-	}
+	maven {	url 'https://maven.blamejared.com' }
+	// for REI
+	maven { url 'https://maven.shedaniel.me' }
 }
 
 loom {
@@ -57,7 +57,16 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	include modImplementation("vazkii.patchouli:Patchouli:${project.patchouli_version}") {
+	// patchouli
+	modImplementation("vazkii.patchouli:Patchouli:${project.patchouli_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+
+	// rei
+	modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	modRuntimeOnly("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 }
@@ -68,7 +77,7 @@ processResources {
 	filesMatching("fabric.mod.json") {
 		expand "version": project.version
 	}
-	filesMatching("en_us.json") {
+	filesMatching("assets/total_war/lang/en_us.json") {
 		expand "version": project.version
 	}
 }

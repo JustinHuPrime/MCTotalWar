@@ -56,7 +56,7 @@ Guidance: point for bearing, set range
 
 Defences: concrete (high blast resistance)
 
-Counter-RAM: early warning radar (reports bearing of incoming shots, long range), computer - does guidance calculations
+Counter-RAM: early warning radar (reports bearing of incoming shots, long range)
 
 Structural Metals: Aluminium, Galvanized Steel
 

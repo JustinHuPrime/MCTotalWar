@@ -1,6 +1,10 @@
 {
   "name": "item.total_war.guidebook",
   "landing_text": "book.total_war.landing_text",
+  "model": "total_war:guidebook",
   "subtitle": "book.total_war.subtitle",
+  "creative_tab": "total_war:group",
+  "dont_generate_book": true,
+  "custom_book_item": "total_war:guidebook",
   "show_progress": false
 }

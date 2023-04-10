@@ -1,0 +1,7 @@
+{
+  "book.total_war.landing_text": "A tech and military mod for Minecraft",
+  "book.total_war.subtitle": "For ${version}",
+  "item.total_war.cannon_shell_empty": "Cannon Shell (Empty)",
+  "item.total_war.guidebook": "Total War Guidebook",
+  "itemGroup.total_war.group": "Total War"
+}

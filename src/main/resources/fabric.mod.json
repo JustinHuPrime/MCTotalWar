@@ -11,7 +11,7 @@
     "homepage": "https://github.com/JustinHuPrime/MCTotalWar#readme",
     "sources": "https://github.com/JustinHuPrime/MCTotalWar"
   },
-  "license": "GPL-3.0-or-later",
+  "license": "AGPL-3.0-or-later",
   "icon": "assets/total_war/icon.png",
   "environment": "*",
   "entrypoints": {
