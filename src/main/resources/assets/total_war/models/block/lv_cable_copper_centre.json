@@ -1,0 +1,39 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "texture": "total_war:block/lv_cable_copper",
+    "particle": "total_war:block/lv_cable_copper"
+  },
+  "elements": [
+    {
+      "from": [7, 7, 7],
+      "to": [9, 9, 9],
+      "faces": {
+        "north": {
+          "uv": [0, 0, 2, 2],
+          "texture": "#texture"
+        },
+        "east": {
+          "uv": [0, 0, 2, 2],
+          "texture": "#texture"
+        },
+        "south": {
+          "uv": [0, 0, 2, 2],
+          "texture": "#texture"
+        },
+        "west": {
+          "uv": [0, 0, 2, 2],
+          "texture": "#texture"
+        },
+        "up": {
+          "uv": [0, 0, 2, 2],
+          "texture": "#texture"
+        },
+        "down": {
+          "uv": [0, 0, 2, 2],
+          "texture": "#texture"
+        }
+      }
+    }
+  ]
+}

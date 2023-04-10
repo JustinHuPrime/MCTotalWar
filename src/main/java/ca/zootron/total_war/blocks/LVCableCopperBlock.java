@@ -23,16 +23,34 @@ import ca.zootron.total_war.blockentities.LVCableCopperBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.ConnectingBlock;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.state.StateManager.Builder;
+import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 
-public class LVCableCopperBlock extends Block implements BlockEntityProvider {
+public class LVCableCopperBlock extends ConnectingBlock implements BlockEntityProvider {
+  public static final BooleanProperty NORTH = Properties.NORTH;
+  public static final BooleanProperty EAST = Properties.EAST;
+  public static final BooleanProperty SOUTH = Properties.SOUTH;
+  public static final BooleanProperty WEST = Properties.WEST;
+  public static final BooleanProperty UP = Properties.UP;
+  public static final BooleanProperty DOWN = Properties.DOWN;
+
   public LVCableCopperBlock(Settings settings) {
-    super(settings);
+    super(1f / 16f, settings);
+    setDefaultState(getDefaultState().with(NORTH, false).with(EAST, false).with(SOUTH, false).with(WEST, false)
+        .with(UP, false).with(DOWN, false));
   }
 
   @Override
   public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
     return new LVCableCopperBlockEntity(pos, state);
+  }
+
+  @Override
+  protected void appendProperties(Builder<Block, BlockState> builder) {
+    builder.add(NORTH, EAST, SOUTH, WEST, UP, DOWN);
   }
 }

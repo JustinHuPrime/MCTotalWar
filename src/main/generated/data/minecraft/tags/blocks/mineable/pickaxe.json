@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "total_war:reinforced_concrete",
+    "total_war:resistor",
+    "total_war:lv_cable_copper"
+  ]
+}

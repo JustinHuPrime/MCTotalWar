@@ -60,7 +60,7 @@ public abstract class TWBlockEntities {
   public static final BlockEntityRecord<LVCableCopperBlockEntity> LV_CABLE_COPPER = blockEntity("LV Cable (Copper)",
       "lv_cable_copper",
       new LVCableCopperBlock(FabricBlockSettings.of(Material.METAL).strength(3, 6).requiresTool()),
-      LVCableCopperBlockEntity::new);
+      LVCableCopperBlockEntity::new, true);
 
   public static final BlockEntityRecord<CreativeGeneratorBlockEntity> CREATIVE_GENERATOR = blockEntity(
       "Creative Generator", "creative_generator",
