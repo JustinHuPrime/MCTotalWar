@@ -20,31 +20,20 @@
 package ca.zootron.total_war.datagen;
 
 import ca.zootron.total_war.TWBlocks;
-import ca.zootron.total_war.TWItems;
 import ca.zootron.total_war.TWBlocks.BlockRecord;
-import ca.zootron.total_war.TWItems.ItemRecord;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 
-public class TWModelProvider extends FabricModelProvider {
-	public TWModelProvider(FabricDataOutput output) {
-		super(output);
-	}
+public class TWBlockLootProvider extends FabricBlockLootTableProvider {
+  public TWBlockLootProvider(FabricDataOutput dataOutput) {
+    super(dataOutput);
+  }
 
-	@Override
-	public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-		for (BlockRecord block : TWBlocks.blocks) {
-			blockStateModelGenerator.registerSimpleCubeAll(block.block().getBlock());
-		}
-	}
-
-	@Override
-	public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-		for (ItemRecord item : TWItems.items) {
-			itemModelGenerator.register(item.item(), Models.GENERATED);
-		}
-	}
+  @Override
+  public void generate() {
+    for (BlockRecord block : TWBlocks.blocks) {
+      addDrop(block.block().getBlock());
+    }
+    addDrop(TWBlocks.REINFORCED_CONCRETE.block().getBlock(), drops(TWBlocks.REINFORCED_CONCRETE.block()));
+  }
 }

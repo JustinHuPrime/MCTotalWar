@@ -42,25 +42,14 @@ public abstract class TWItems {
   public static final ItemRecord GUIDEBOOK = item("Total War Guidebook", "guidebook",
       new GuidebookItem(new FabricItemSettings()));
 
-  public static final ItemRecord CANNON_SHELL_EMPTY = item("Cannon Shell (Empty)", "cannon_shell_empty",
-      new FabricItemSettings());
-  public static final ItemRecord CANNON_SHELL_SHRAPNEL = item("Cannon Shell (Shrapnel)", "cannon_shell_shrapnel",
-      new FabricItemSettings());
-  public static final ItemRecord CANNON_SHELL_EXPLOSIVE = item("Cannon Shell (Explosive)", "cannon_shell_explosive",
-      new FabricItemSettings());
-  public static final ItemRecord CANNON_SHELL_GAS = item("Cannon Shell (Gas)", "cannon_shell_gas",
-      new FabricItemSettings());
-  public static final ItemRecord CANNON_SHELL_SMOKE = item("Cannon Shell (Smoke)", "cannon_shell_smoke",
-      new FabricItemSettings());
+  public static final ItemRecord CANNON_SHELL_EMPTY = item("Cannon Shell (Empty)", "cannon_shell_empty");
+  public static final ItemRecord CANNON_SHELL_SHRAPNEL = item("Cannon Shell (Shrapnel)", "cannon_shell_shrapnel");
+  public static final ItemRecord CANNON_SHELL_EXPLOSIVE = item("Cannon Shell (Explosive)", "cannon_shell_explosive");
+  public static final ItemRecord CANNON_SHELL_GAS = item("Cannon Shell (Gas)", "cannon_shell_gas");
+  public static final ItemRecord CANNON_SHELL_SMOKE = item("Cannon Shell (Smoke)", "cannon_shell_smoke");
 
-  public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(new Identifier(TotalWar.MODID, "group"))
-      .icon(() -> new ItemStack(CANNON_SHELL_EMPTY.item())).build();
-  static {
-    ItemGroupEvents.modifyEntriesEvent(ITEM_GROUP).register(content -> {
-      for (ItemRecord item : items) {
-        content.add(item.item());
-      }
-    });
+  private static ItemRecord item(String englishName, String id) {
+    return item(englishName, id, new FabricItemSettings());
   }
 
   private static ItemRecord item(String englishName, String id, FabricItemSettings settings) {

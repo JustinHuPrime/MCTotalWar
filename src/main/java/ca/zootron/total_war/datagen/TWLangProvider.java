@@ -19,7 +19,10 @@
 
 package ca.zootron.total_war.datagen;
 
+import ca.zootron.total_war.TWBlocks;
 import ca.zootron.total_war.TWItems;
+import ca.zootron.total_war.TotalWar;
+import ca.zootron.total_war.TWBlocks.BlockRecord;
 import ca.zootron.total_war.TWItems.ItemRecord;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -36,9 +39,14 @@ public class TWLangProvider extends FabricLanguageProvider {
     translationBuilder.add("book.total_war.subtitle", "For Total War version ${version}");
 
     // items
-    translationBuilder.add(TWItems.ITEM_GROUP, "Total War");
+    translationBuilder.add(TotalWar.ITEM_GROUP, "Total War");
     for (ItemRecord item : TWItems.items) {
       translationBuilder.add(item.item(), item.englishName());
+    }
+
+    // blocks
+    for (BlockRecord block : TWBlocks.blocks) {
+      translationBuilder.add(block.block().getBlock(), block.englishName());
     }
   }
 }

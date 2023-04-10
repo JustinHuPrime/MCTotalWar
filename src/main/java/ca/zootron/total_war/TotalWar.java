@@ -20,9 +20,17 @@
 package ca.zootron.total_war;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Identifier;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import ca.zootron.total_war.TWBlocks.BlockRecord;
+import ca.zootron.total_war.TWItems.ItemRecord;
 
 /**
  * Main entrypoint
@@ -32,11 +40,27 @@ public class TotalWar implements ModInitializer {
 
   public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 
+  public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(new Identifier(TotalWar.MODID, "group"))
+      .icon(() -> new ItemStack(TWItems.CANNON_SHELL_EMPTY.item())).build();
+
   @Override
   public void onInitialize() {
     LOGGER.info("Initializing {}", MODID);
 
     TWItems.init();
+    TWBlocks.init();
+
+    ItemGroupEvents.modifyEntriesEvent(ITEM_GROUP).register(content -> {
+      content.add(TWItems.GUIDEBOOK.item());
+      for (BlockRecord block : TWBlocks.blocks) {
+        content.add(block.block());
+      }
+      for (ItemRecord item : TWItems.items) {
+        if (item != TWItems.GUIDEBOOK) {
+          content.add(item.item());
+        }
+      }
+    });
 
     LOGGER.info("Initialized {}", MODID);
   }

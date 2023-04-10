@@ -26,6 +26,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator.Pack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ca.zootron.total_war.datagen.TWBlockLootProvider;
 import ca.zootron.total_war.datagen.TWLangProvider;
 import ca.zootron.total_war.datagen.TWModelProvider;
 
@@ -40,6 +41,7 @@ public class TotalWarDataGenerator implements DataGeneratorEntrypoint {
         LOGGER.info("Initializing {} data generator", TotalWar.MODID);
 
         Pack pack = gen.createPack();
+        pack.addProvider(TWBlockLootProvider::new);
         pack.addProvider(TWLangProvider::new);
         pack.addProvider(TWModelProvider::new);
 
