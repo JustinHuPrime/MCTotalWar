@@ -42,10 +42,14 @@ public class TWModelProvider extends FabricModelProvider {
 	@Override
 	public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
 		for (BlockRecord block : TWBlocks.blocks) {
-			blockStateModelGenerator.registerSimpleCubeAll(block.block().getBlock());
+			if (!block.customModel()) {
+				blockStateModelGenerator.registerSimpleCubeAll(block.block().getBlock());
+			}
 		}
 		for (BlockEntityRecord<?> blockEntity : TWBlockEntities.blockEntities) {
-			blockStateModelGenerator.registerSimpleCubeAll(blockEntity.block().getBlock());
+			if (!blockEntity.customModel()) {
+				blockStateModelGenerator.registerSimpleCubeAll(blockEntity.block().getBlock());
+			}
 		}
 	}
 

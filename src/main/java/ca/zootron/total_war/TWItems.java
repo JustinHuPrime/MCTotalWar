@@ -45,16 +45,24 @@ public abstract class TWItems {
   public static final ItemRecord CANNON_SHELL_SMOKE = item("Cannon Shell (Smoke)", "cannon_shell_smoke");
 
   private static ItemRecord item(String englishName, String id) {
-    return item(englishName, id, new FabricItemSettings());
+    return item(englishName, id, false);
   }
 
-  private static ItemRecord item(String englishName, String id, FabricItemSettings settings) {
-    return item(englishName, id, new Item(settings));
+  private static ItemRecord item(String englishName, String id, boolean customModel) {
+    return item(englishName, id, new FabricItemSettings(), customModel);
+  }
+
+  private static ItemRecord item(String englishName, String id, FabricItemSettings settings, boolean customModel) {
+    return item(englishName, id, new Item(settings), customModel);
   }
 
   private static ItemRecord item(String englishName, String id, Item item) {
+    return item(englishName, id, item, false);
+  }
+
+  private static ItemRecord item(String englishName, String id, Item item, boolean customModel) {
     Registry.register(Registries.ITEM, new Identifier(TotalWar.MODID, id), item);
-    ItemRecord record = new ItemRecord(item, englishName);
+    ItemRecord record = new ItemRecord(item, englishName, customModel);
     items.add(record);
     return record;
   }
@@ -65,6 +73,6 @@ public abstract class TWItems {
   private TWItems() {
   }
 
-  public static record ItemRecord(Item item, String englishName) {
+  public static record ItemRecord(Item item, String englishName, boolean customModel) {
   }
 }

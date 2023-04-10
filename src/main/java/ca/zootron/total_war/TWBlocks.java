@@ -42,20 +42,26 @@ public abstract class TWBlocks {
       FabricBlockSettings.of(Material.STONE).strength(6f, 12f).requiresTool());
 
   public static BlockRecord block(String englishName, String id, FabricBlockSettings blockSettings) {
-    return block(englishName, id, blockSettings, new FabricItemSettings());
+    return block(englishName, id, blockSettings, false);
   }
 
   public static BlockRecord block(String englishName, String id, FabricBlockSettings blockSettings,
-      FabricItemSettings itemSettings) {
-    return block(englishName, id, new Block(blockSettings), itemSettings);
+      boolean customModel) {
+    return block(englishName, id, blockSettings, new FabricItemSettings(), customModel);
   }
 
-  public static BlockRecord block(String englishName, String id, Block block, FabricItemSettings itemSettings) {
+  public static BlockRecord block(String englishName, String id, FabricBlockSettings blockSettings,
+      FabricItemSettings itemSettings, boolean customModel) {
+    return block(englishName, id, new Block(blockSettings), itemSettings, customModel);
+  }
+
+  public static BlockRecord block(String englishName, String id, Block block, FabricItemSettings itemSettings,
+      boolean customModel) {
     Identifier identifier = new Identifier(TotalWar.MODID, id);
     BlockItem blockItem = new BlockItem(block, itemSettings);
     Registry.register(Registries.BLOCK, identifier, block);
     Registry.register(Registries.ITEM, identifier, (Item) blockItem);
-    BlockRecord record = new BlockRecord(blockItem, identifier, englishName);
+    BlockRecord record = new BlockRecord(blockItem, identifier, englishName, customModel);
     blocks.add(record);
     return record;
   }
@@ -66,6 +72,6 @@ public abstract class TWBlocks {
   private TWBlocks() {
   }
 
-  public static record BlockRecord(BlockItem block, Identifier identifier, String englishName) {
+  public static record BlockRecord(BlockItem block, Identifier identifier, String englishName, boolean customModel) {
   }
 }

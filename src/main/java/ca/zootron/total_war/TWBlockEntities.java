@@ -23,8 +23,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.zootron.total_war.blockentities.CreativeGeneratorBlockEntity;
+import ca.zootron.total_war.blockentities.LVCableCopperBlockEntity;
 import ca.zootron.total_war.blockentities.ResistorBlockEntity;
 import ca.zootron.total_war.blocks.CreativeGeneratorBlock;
+import ca.zootron.total_war.blocks.LVCableCopperBlock;
 import ca.zootron.total_war.blocks.ResistorBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -55,28 +57,40 @@ public abstract class TWBlockEntities {
     FlammableBlockRegistry.getDefaultInstance().add(RESISTOR.block().getBlock(), 5, 5);
   }
 
+  public static final BlockEntityRecord<LVCableCopperBlockEntity> LV_CABLE_COPPER = blockEntity("LV Cable (Copper)",
+      "lv_cable_copper",
+      new LVCableCopperBlock(FabricBlockSettings.of(Material.METAL).strength(3, 6).requiresTool()),
+      LVCableCopperBlockEntity::new);
+
   public static final BlockEntityRecord<CreativeGeneratorBlockEntity> CREATIVE_GENERATOR = blockEntity(
       "Creative Generator", "creative_generator",
-      new CreativeGeneratorBlock(FabricBlockSettings.of(Material.STONE).strength(-1.0f, 3600000.0f).dropsNothing()
+      new CreativeGeneratorBlock(FabricBlockSettings.of(Material.METAL).strength(-1.0f, 3600000.0f).dropsNothing()
           .allowsSpawning((state, view, pos, entity) -> false)),
       CreativeGeneratorBlockEntity::new);
 
   public static <T extends BlockEntity, U extends Block & BlockEntityProvider> BlockEntityRecord<T> blockEntity(
       String englishName, String id,
       U block, Factory<T> entityCtor) {
-    return blockEntity(englishName, id, block, new FabricItemSettings(), entityCtor);
+    return blockEntity(englishName, id, block, entityCtor, false);
   }
 
   public static <T extends BlockEntity, U extends Block & BlockEntityProvider> BlockEntityRecord<T> blockEntity(
       String englishName, String id,
-      U block, FabricItemSettings itemSettings, Factory<T> entityCtor) {
+      U block, Factory<T> entityCtor, boolean customModel) {
+    return blockEntity(englishName, id, block, new FabricItemSettings(), entityCtor, customModel);
+  }
+
+  public static <T extends BlockEntity, U extends Block & BlockEntityProvider> BlockEntityRecord<T> blockEntity(
+      String englishName, String id,
+      U block, FabricItemSettings itemSettings, Factory<T> entityCtor, boolean customModel) {
     Identifier identifier = new Identifier(TotalWar.MODID, id);
     BlockItem blockItem = new BlockItem(block, itemSettings);
     Registry.register(Registries.BLOCK, identifier, block);
     Registry.register(Registries.ITEM, identifier, (Item) blockItem);
     BlockEntityType<T> blockEntityType = Registry.register(Registries.BLOCK_ENTITY_TYPE, identifier,
         FabricBlockEntityTypeBuilder.create(entityCtor, blockItem.getBlock()).build());
-    BlockEntityRecord<T> record = new BlockEntityRecord<>(blockEntityType, blockItem, identifier, englishName);
+    BlockEntityRecord<T> record = new BlockEntityRecord<>(blockEntityType, blockItem, identifier, englishName,
+        customModel);
     blockEntities.add(record);
     return record;
   }
@@ -88,6 +102,6 @@ public abstract class TWBlockEntities {
   }
 
   public static record BlockEntityRecord<T extends BlockEntity>(BlockEntityType<T> blockEntity, BlockItem block,
-      Identifier identifier, String englishName) {
+      Identifier identifier, String englishName, boolean customModel) {
   }
 }
