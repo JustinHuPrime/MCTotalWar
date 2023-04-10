@@ -32,6 +32,9 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+/**
+ * Blocks registration static class
+ */
 public abstract class TWBlocks {
   public static final List<BlockRecord> blocks = new ArrayList<>();
 

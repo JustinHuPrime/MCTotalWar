@@ -19,14 +19,19 @@
 
 package ca.zootron.total_war.datagen;
 
+import ca.zootron.total_war.TWBlockEntities;
 import ca.zootron.total_war.TWBlocks;
 import ca.zootron.total_war.TWItems;
 import ca.zootron.total_war.TotalWar;
+import ca.zootron.total_war.TWBlockEntities.BlockEntityRecord;
 import ca.zootron.total_war.TWBlocks.BlockRecord;
 import ca.zootron.total_war.TWItems.ItemRecord;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
+/**
+ * Translation mapper
+ */
 public class TWLangProvider extends FabricLanguageProvider {
   public TWLangProvider(FabricDataOutput dataOutput) {
     super(dataOutput, "en_us");
@@ -47,6 +52,11 @@ public class TWLangProvider extends FabricLanguageProvider {
     // blocks
     for (BlockRecord block : TWBlocks.blocks) {
       translationBuilder.add(block.block().getBlock(), block.englishName());
+    }
+
+    // block entity blocks
+    for (BlockEntityRecord<?> blockEntity : TWBlockEntities.blockEntities) {
+      translationBuilder.add(blockEntity.block().getBlock(), blockEntity.englishName());
     }
   }
 }

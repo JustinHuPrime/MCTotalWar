@@ -29,6 +29,7 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ca.zootron.total_war.TWBlockEntities.BlockEntityRecord;
 import ca.zootron.total_war.TWBlocks.BlockRecord;
 import ca.zootron.total_war.TWItems.ItemRecord;
 
@@ -47,13 +48,17 @@ public class TotalWar implements ModInitializer {
   public void onInitialize() {
     LOGGER.info("Initializing {}", MODID);
 
-    TWItems.init();
+    TWBlockEntities.init();
     TWBlocks.init();
+    TWItems.init();
 
     ItemGroupEvents.modifyEntriesEvent(ITEM_GROUP).register(content -> {
       content.add(TWItems.GUIDEBOOK.item());
       for (BlockRecord block : TWBlocks.blocks) {
         content.add(block.block());
+      }
+      for (BlockEntityRecord<?> blockEntity : TWBlockEntities.blockEntities) {
+        content.add(blockEntity.block());
       }
       for (ItemRecord item : TWItems.items) {
         if (item != TWItems.GUIDEBOOK) {

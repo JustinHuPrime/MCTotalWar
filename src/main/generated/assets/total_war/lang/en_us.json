@@ -1,5 +1,6 @@
 {
   "block.total_war.reinforced_concrete": "Reinforced Concrete",
+  "block.total_war.resistor": "Resistor",
   "book.total_war.landing_text": "A tech and military mod for Minecraft",
   "book.total_war.subtitle": "For Total War version ${version}",
   "item.total_war.cannon_shell_empty": "Cannon Shell (Empty)",

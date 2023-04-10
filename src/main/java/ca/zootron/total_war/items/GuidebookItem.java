@@ -29,6 +29,10 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import vazkii.patchouli.api.PatchouliAPI;
 
+/**
+ * Guidebook - created manually to be able to customize placement in creative
+ * tab
+ */
 public class GuidebookItem extends Item {
   public GuidebookItem(Settings settings) {
     super(settings);

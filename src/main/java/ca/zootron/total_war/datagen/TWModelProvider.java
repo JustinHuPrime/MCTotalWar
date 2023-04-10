@@ -19,8 +19,10 @@
 
 package ca.zootron.total_war.datagen;
 
+import ca.zootron.total_war.TWBlockEntities;
 import ca.zootron.total_war.TWBlocks;
 import ca.zootron.total_war.TWItems;
+import ca.zootron.total_war.TWBlockEntities.BlockEntityRecord;
 import ca.zootron.total_war.TWBlocks.BlockRecord;
 import ca.zootron.total_war.TWItems.ItemRecord;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -29,6 +31,9 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 
+/**
+ * Model generator
+ */
 public class TWModelProvider extends FabricModelProvider {
 	public TWModelProvider(FabricDataOutput output) {
 		super(output);
@@ -38,6 +43,9 @@ public class TWModelProvider extends FabricModelProvider {
 	public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
 		for (BlockRecord block : TWBlocks.blocks) {
 			blockStateModelGenerator.registerSimpleCubeAll(block.block().getBlock());
+		}
+		for (BlockEntityRecord<?> blockEntity : TWBlockEntities.blockEntities) {
+			blockStateModelGenerator.registerSimpleCubeAll(blockEntity.block().getBlock());
 		}
 	}
 

@@ -17,30 +17,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-package ca.zootron.total_war.datagen;
+package ca.zootron.total_war.blockentities;
 
 import ca.zootron.total_war.TWBlockEntities;
-import ca.zootron.total_war.TWBlocks;
-import ca.zootron.total_war.TWBlockEntities.BlockEntityRecord;
-import ca.zootron.total_war.TWBlocks.BlockRecord;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.util.math.BlockPos;
 
-/**
- * Block loot tables
- */
-public class TWBlockLootProvider extends FabricBlockLootTableProvider {
-  public TWBlockLootProvider(FabricDataOutput dataOutput) {
-    super(dataOutput);
-  }
-
-  @Override
-  public void generate() {
-    for (BlockRecord block : TWBlocks.blocks) {
-      addDrop(block.block().getBlock());
-    }
-    for (BlockEntityRecord<?> blockEntity : TWBlockEntities.blockEntities) {
-      addDrop(blockEntity.block().getBlock());
-    }
+public class ResistorBlockEntity extends BlockEntity {
+  public ResistorBlockEntity(BlockPos pos, BlockState state) {
+    super(TWBlockEntities.RESISTOR.blockEntity(), pos, state);
   }
 }
