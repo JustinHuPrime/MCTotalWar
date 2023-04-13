@@ -19,16 +19,20 @@
 
 package ca.zootron.total_war.blocks;
 
+import ca.zootron.total_war.TWBlockEntities;
 import ca.zootron.total_war.blockentities.LVCableCopperBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ConnectingBlock;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.state.StateManager.Builder;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class LVCableCopperBlock extends ConnectingBlock implements BlockEntityProvider {
   public static final BooleanProperty NORTH = Properties.NORTH;
@@ -52,5 +56,16 @@ public class LVCableCopperBlock extends ConnectingBlock implements BlockEntityPr
   @Override
   protected void appendProperties(Builder<Block, BlockState> builder) {
     builder.add(NORTH, EAST, SOUTH, WEST, UP, DOWN);
+  }
+
+  @Override
+  public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state,
+      BlockEntityType<T> type) {
+    if (TWBlockEntities.LV_CABLE_COPPER.blockEntity() != type) {
+      return null;
+    }
+
+    return (world_, pos, state_, resistor) -> LVCableCopperBlockEntity.tick(world_, pos, state_,
+        (LVCableCopperBlockEntity) resistor);
   }
 }

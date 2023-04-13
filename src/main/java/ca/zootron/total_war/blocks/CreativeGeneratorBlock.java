@@ -19,12 +19,16 @@
 
 package ca.zootron.total_war.blocks;
 
+import ca.zootron.total_war.TWBlockEntities;
 import ca.zootron.total_war.blockentities.CreativeGeneratorBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class CreativeGeneratorBlock extends Block implements BlockEntityProvider {
   public CreativeGeneratorBlock(Settings settings) {
@@ -34,5 +38,16 @@ public class CreativeGeneratorBlock extends Block implements BlockEntityProvider
   @Override
   public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
     return new CreativeGeneratorBlockEntity(pos, state);
+  }
+
+  @Override
+  public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state,
+      BlockEntityType<T> type) {
+    if (TWBlockEntities.CREATIVE_GENERATOR.blockEntity() != type) {
+      return null;
+    }
+
+    return (world_, pos, state_, resistor) -> CreativeGeneratorBlockEntity.tick(world_, pos, state_,
+        (CreativeGeneratorBlockEntity) resistor);
   }
 }

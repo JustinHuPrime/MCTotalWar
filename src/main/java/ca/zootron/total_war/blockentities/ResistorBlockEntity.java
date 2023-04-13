@@ -19,13 +19,65 @@
 
 package ca.zootron.total_war.blockentities;
 
+import org.jetbrains.annotations.Nullable;
+
 import ca.zootron.total_war.TWBlockEntities;
+import ca.zootron.total_war.energy.EnergyNet;
+import ca.zootron.total_war.energy.EnergyNetConsumer;
+import ca.zootron.total_war.energy.EnergyNet.ConnectionDescription;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
-public class ResistorBlockEntity extends BlockEntity {
+public class ResistorBlockEntity extends BlockEntity implements EnergyNetConsumer {
+  private EnergyNet energyNet;
+
   public ResistorBlockEntity(BlockPos pos, BlockState state) {
     super(TWBlockEntities.RESISTOR.blockEntity(), pos, state);
+
+    energyNet = null;
+  }
+
+  public static void tick(World world, BlockPos pos, BlockState state, ResistorBlockEntity resistor) {
+    if (!world.isClient) {
+      if (resistor.energyNet == null) {
+        ConnectionDescription connection = EnergyNet.findOrCreateEnergyNet(world, pos);
+        resistor.energyNet = connection.energyNet();
+        resistor.energyNet.addConsumer(resistor, connection.neighbours());
+      }
+      resistor.energyNet.tickComponent(world.getTime());
+
+      // no block-specific tick actions; this is a resistor and will void any energy
+    }
+  }
+
+  @Override
+  public @Nullable EnergyNet getEnergyNet() {
+    return energyNet;
+  }
+
+  @Override
+  public void setEnergyNet(EnergyNet energyNet) {
+    this.energyNet = energyNet;
+  }
+
+  @Override
+  public void markRemoved() {
+    if (energyNet != null) {
+      energyNet.removeComponent(this);
+    }
+
+    super.markRemoved();
+  }
+
+  @Override
+  public void setInput(double energy) {
+    // explicitly ignore the input - this is a resistor and will void any energy
+  }
+
+  @Override
+  public void setThroughput(double throughput) {
+    // ignore throughput - this is a resistor and has no throughput limit
   }
 }

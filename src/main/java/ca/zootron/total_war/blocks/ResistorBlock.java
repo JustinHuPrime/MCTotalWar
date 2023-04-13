@@ -19,12 +19,16 @@
 
 package ca.zootron.total_war.blocks;
 
+import ca.zootron.total_war.TWBlockEntities;
 import ca.zootron.total_war.blockentities.ResistorBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class ResistorBlock extends Block implements BlockEntityProvider {
   public ResistorBlock(Settings settings) {
@@ -34,5 +38,16 @@ public class ResistorBlock extends Block implements BlockEntityProvider {
   @Override
   public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
     return new ResistorBlockEntity(pos, state);
+  }
+
+  @Override
+  public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state,
+      BlockEntityType<T> type) {
+    if (TWBlockEntities.RESISTOR.blockEntity() != type) {
+      return null;
+    }
+
+    return (world_, pos, state_, resistor) -> ResistorBlockEntity.tick(world_, pos, state_,
+        (ResistorBlockEntity) resistor);
   }
 }
