@@ -1,34 +1,15 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "ingredients": [
-    {
-      "item": "total_war:copper_nugget"
-    },
-    {
-      "item": "total_war:copper_nugget"
-    },
-    {
-      "item": "total_war:copper_nugget"
-    },
-    {
-      "item": "total_war:copper_nugget"
-    },
-    {
-      "item": "total_war:copper_nugget"
-    },
-    {
-      "item": "total_war:copper_nugget"
-    },
-    {
-      "item": "total_war:copper_nugget"
-    },
-    {
-      "item": "total_war:copper_nugget"
-    },
-    {
-      "item": "total_war:copper_nugget"
+  "key": {
+    "x": {
+      "tag": "c:copper_nuggets"
     }
+  },
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
   ],
   "result": {
     "item": "minecraft:copper_ingot"
