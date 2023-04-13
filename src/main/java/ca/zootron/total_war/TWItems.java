@@ -44,6 +44,8 @@ public abstract class TWItems {
   public static final ItemRecord CANNON_SHELL_GAS = item("Cannon Shell (Gas)", "cannon_shell_gas");
   public static final ItemRecord CANNON_SHELL_SMOKE = item("Cannon Shell (Smoke)", "cannon_shell_smoke");
 
+  public static final ItemRecord COPPER_NUGGET = item("Copper Nugget", "copper_nugget");
+
   private static ItemRecord item(String englishName, String id) {
     return item(englishName, id, false);
   }

@@ -100,6 +100,8 @@ public class EnergyNet {
     addComponent(energyNetComponent, neighbours);
   }
 
+  // TODO: batch removals to just before next active tick
+  // performance when melting down 4096 cables is poor
   public void removeComponent(EnergyNetComponent energyNetComponent) {
     consumers.remove(energyNetComponent);
     producers.remove(energyNetComponent);
