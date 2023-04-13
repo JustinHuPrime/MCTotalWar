@@ -118,7 +118,7 @@ Defences: shield projector (uses energy to absorb damage, fast charge time)
 
 Counter-RAM: defence drone (intercepts incoming artillery at short range, mobile)
 
-Structural Metals: Tungsten, Vanadium Steel
+Structural Metals: Osmium-Iridium, Titanium-Iridium
 
 ## Tier 5 - SV
 
@@ -134,4 +134,4 @@ Artillery: intercontinental ballistic missile (infinite range)
 
 Warheads: antimatter (very large explosion, ignores blast resistance)
 
-Structural Metals: Osmium-Iridium, Vanadium Chromium Steel
+Structural Metals: Osmium-Iridium, Titanium-Iridium
