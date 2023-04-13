@@ -30,6 +30,7 @@ import ca.zootron.total_war.datagen.TWBlockLootProvider;
 import ca.zootron.total_war.datagen.TWBlockTagProvider;
 import ca.zootron.total_war.datagen.TWLangProvider;
 import ca.zootron.total_war.datagen.TWModelProvider;
+import ca.zootron.total_war.datagen.TWRecipeProvider;
 
 /**
  * Data generator entrypoint
@@ -46,6 +47,7 @@ public class TotalWarDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(TWBlockTagProvider::new);
         pack.addProvider(TWLangProvider::new);
         pack.addProvider(TWModelProvider::new);
+        pack.addProvider(TWRecipeProvider::new);
 
         LOGGER.info("Initialized {} data generator", TotalWar.MODID);
     }
