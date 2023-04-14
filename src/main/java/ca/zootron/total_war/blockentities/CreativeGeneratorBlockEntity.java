@@ -64,7 +64,7 @@ public class CreativeGeneratorBlockEntity extends BlockEntity implements EnergyN
 
   @Override
   public void markRemoved() {
-    if (energyNet != null) {
+    if (!this.world.isClient && energyNet != null) {
       energyNet.removeComponent(this);
     }
 

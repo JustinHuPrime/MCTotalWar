@@ -73,7 +73,7 @@ public class LVCableCopperBlockEntity extends BlockEntity implements EnergyNetCo
 
   @Override
   public void markRemoved() {
-    if (energyNet != null) {
+    if (!this.world.isClient && energyNet != null) {
       energyNet.removeComponent(this);
     }
 

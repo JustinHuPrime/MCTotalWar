@@ -64,7 +64,7 @@ public class ResistorBlockEntity extends BlockEntity implements EnergyNetConsume
 
   @Override
   public void markRemoved() {
-    if (energyNet != null) {
+    if (!this.world.isClient && energyNet != null) {
       energyNet.removeComponent(this);
     }
 
