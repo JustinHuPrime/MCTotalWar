@@ -19,8 +19,13 @@
 
 package ca.zootron.total_war.blocks;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import ca.zootron.total_war.TWBlockEntities;
+import ca.zootron.total_war.TotalWar;
 import ca.zootron.total_war.blockentities.LVCableCopperBlockEntity;
+import ca.zootron.total_war.energy.EnergyNetComponent;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -28,13 +33,18 @@ import net.minecraft.block.ConnectingBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager.Builder;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 
 public class LVCableCopperBlock extends ConnectingBlock implements BlockEntityProvider {
+  public static final Logger LOGGER = LoggerFactory.getLogger(TotalWar.MODID);
+
   public static final BooleanProperty NORTH = Properties.NORTH;
   public static final BooleanProperty EAST = Properties.EAST;
   public static final BooleanProperty SOUTH = Properties.SOUTH;
@@ -67,5 +77,50 @@ public class LVCableCopperBlock extends ConnectingBlock implements BlockEntityPr
 
     return (world_, pos, state_, resistor) -> LVCableCopperBlockEntity.tick(world_, pos, state_,
         (LVCableCopperBlockEntity) resistor);
+  }
+
+  @Override
+  public BlockState getPlacementState(ItemPlacementContext ctx) {
+    return this.getDefaultState().with(NORTH,
+        ctx.getWorld().getBlockEntity(ctx.getBlockPos().north()) instanceof EnergyNetComponent)
+        .with(EAST,
+            ctx.getWorld().getBlockEntity(ctx.getBlockPos().east()) instanceof EnergyNetComponent)
+        .with(SOUTH,
+            ctx.getWorld().getBlockEntity(ctx.getBlockPos().south()) instanceof EnergyNetComponent)
+        .with(WEST,
+            ctx.getWorld().getBlockEntity(ctx.getBlockPos().west()) instanceof EnergyNetComponent)
+        .with(UP,
+            ctx.getWorld().getBlockEntity(ctx.getBlockPos().up()) instanceof EnergyNetComponent)
+        .with(DOWN,
+            ctx.getWorld().getBlockEntity(ctx.getBlockPos().down()) instanceof EnergyNetComponent);
+  }
+
+  @Override
+  public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState,
+      WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    switch (direction) {
+      case NORTH: {
+        return state.with(NORTH, world.getBlockEntity(neighborPos) instanceof EnergyNetComponent);
+      }
+      case EAST: {
+        return state.with(EAST, world.getBlockEntity(neighborPos) instanceof EnergyNetComponent);
+      }
+      case SOUTH: {
+        return state.with(SOUTH, world.getBlockEntity(neighborPos) instanceof EnergyNetComponent);
+      }
+      case WEST: {
+        return state.with(WEST, world.getBlockEntity(neighborPos) instanceof EnergyNetComponent);
+      }
+      case UP: {
+        return state.with(UP, world.getBlockEntity(neighborPos) instanceof EnergyNetComponent);
+      }
+      case DOWN: {
+        return state.with(DOWN, world.getBlockEntity(neighborPos) instanceof EnergyNetComponent);
+      }
+    }
+
+    LOGGER.warn("invalid neighbour direction {} for neighbour position {} for cable at {}", direction, neighborPos,
+        pos);
+    return state;
   }
 }
