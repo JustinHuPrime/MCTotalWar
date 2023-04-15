@@ -25,24 +25,21 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
-import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.slot.Slot;
 
 public class ResistorScreenHandler extends DynamicHeightBackgroundScreenHandler {
   private final PropertyDelegate propertyDelegate;
-  private final ScreenHandlerContext context;
 
   public ResistorScreenHandler(int syncId, PlayerInventory playerInventory) {
-    this(syncId, playerInventory, new ArrayPropertyDelegate(1), ScreenHandlerContext.EMPTY);
+    this(syncId, playerInventory, new ArrayPropertyDelegate(1));
   }
 
   public ResistorScreenHandler(int syncId,
-      PlayerInventory playerInventory, PropertyDelegate propertyDelegate, ScreenHandlerContext context) {
+      PlayerInventory playerInventory, PropertyDelegate propertyDelegate) {
     super(TWScreenHandlers.RESISTOR, syncId, 136);
 
     this.propertyDelegate = propertyDelegate;
     this.addProperties(propertyDelegate);
-    this.context = context;
 
     for (int row = 0; row < 3; ++row) {
       for (int col = 0; col < 9; ++col) {

@@ -19,9 +19,6 @@
 
 package ca.zootron.total_war.gui;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-
-import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;

@@ -33,7 +33,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -111,8 +110,7 @@ public class ResistorBlockEntity extends BlockEntity implements EnergyNetConsume
 
   @Override
   public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-    return new ResistorScreenHandler(syncId, playerInventory, propertyDelegate,
-        ScreenHandlerContext.create(world, pos));
+    return new ResistorScreenHandler(syncId, playerInventory, propertyDelegate);
   }
 
   @Override
