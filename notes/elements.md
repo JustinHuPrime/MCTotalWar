@@ -60,7 +60,7 @@ Copper - electrical metal - from chalcopyrite
 
 Zinc - alloy metal (galvanized steel) - from sphalerite
 
-Gallium - unused (semiconductor dopant) - byproduct from bauxite
+Gallium - high detail semiconductor dopant - byproduct from bauxite
 
 Germanium - unused (optical systems, Si-Ge semiconductors) - from germamite
 
@@ -100,7 +100,7 @@ Indium - unused - byproduct from sphalerite
 
 Tin - alloy metal (bronze, lead-tin solder) - from cassiterite
 
-Antimony - alloy metal (lead-antimony battery components), semiconductors - from stibnite
+Antimony - alloy metal (lead-antimony battery components), high detail semiconductor dopant - from stibnite
 
 Tellurium - unused (solar panels) - from melonite
 
@@ -148,7 +148,7 @@ Tantalum - used in capacitors - from coltan
 
 Tungsten - structural metal - from wolframite
 
-Rhenium - catalyst - PGE byproduct from chalcopyrite
+Rhenium - unused (catalyst) - PGE byproduct from chalcopyrite
 
 Osmium - alloy metal (osmium-iridium) - PGE byproduct from chalcopyrite
 

@@ -26,6 +26,8 @@ Defences: barbed wire (slows and damages players)
 
 Structural metals: Bronze, Mild Steel
 
+Electrical components: Copper (relays)
+
 ## Tier 2 - MV
 
 Oil, natural gas, oil derivatives, lava
@@ -60,6 +62,8 @@ Counter-RAM: early warning radar (reports bearing of incoming shots, long range)
 
 Structural Metals: Aluminium, Galvanized Steel
 
+Electrical Components: Silicon, Aluminium, Phosphorus (transistors)
+
 ## Tier 3 - HV
 
 Uranium, plutonium
@@ -84,7 +88,7 @@ Turret: railgun turret (low fire rate, high accuracy)
 
 Artillery: rifled artillery, cruise missile (high range)
 
-Warheads: nuclear (large explosion)
+Warheads: nuclear (large explosion), salted bomb (small explosion, fallout spread)
 
 Guidance: set bearing, set range
 
@@ -93,6 +97,10 @@ Defences: deflector field (uses energy to absorb damage, slow charge time)
 Counter-RAM: search radar (reports bearing and range of incoming shots, medium range), counter missile (intercepts incoming rocket artillery at long range)
 
 Structural Metals: Titanium, Stainless Steel
+
+Electrical Components: Silicon, Boron, Antimony (integrated circuits)
+
+Bonus Materials: Tantalum (better capcitors), Germanium (better solar panels)
 
 ## Tier 4 - EV
 
@@ -120,6 +128,10 @@ Counter-RAM: defence drone (intercepts incoming artillery at short range, mobile
 
 Structural Metals: Osmium-Iridium, Titanium-Iridium
 
+Electrical Components: Silicon, Gallium, Arsenic (VLSI integrated circuits)
+
+Bonus Materials: Hafnium - (increased semiconductor production)
+
 ## Tier 5 - SV
 
 Fuels: hydrogen plasma
@@ -135,3 +147,5 @@ Artillery: intercontinental ballistic missile (infinite range)
 Warheads: antimatter (very large explosion, ignores blast resistance)
 
 Structural Metals: Osmium-Iridium, Titanium-Iridium
+
+Electrical Components: BSCCO superconductors (Josephson Junctions, as qubits)
