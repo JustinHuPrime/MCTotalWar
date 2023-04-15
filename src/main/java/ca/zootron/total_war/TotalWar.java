@@ -48,10 +48,14 @@ public class TotalWar implements ModInitializer {
   public void onInitialize() {
     LOGGER.info("Initializing {}", MODID);
 
+    // regular initialization
     TWBlockEntities.init();
     TWBlocks.init();
     TWItems.init();
+    TWPackets.init();
+    TWScreenHandlers.init();
 
+    // creative tab
     ItemGroupEvents.modifyEntriesEvent(ITEM_GROUP).register(content -> {
       content.add(TWItems.GUIDEBOOK.item());
       for (BlockRecord block : TWBlocks.blocks) {

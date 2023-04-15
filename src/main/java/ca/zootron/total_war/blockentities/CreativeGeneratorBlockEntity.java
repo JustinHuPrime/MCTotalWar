@@ -24,19 +24,48 @@ import org.jetbrains.annotations.Nullable;
 import ca.zootron.total_war.TWBlockEntities;
 import ca.zootron.total_war.energy.EnergyNet;
 import ca.zootron.total_war.energy.EnergyNetProducer;
+import ca.zootron.total_war.energy.EnergyNetTier;
 import ca.zootron.total_war.energy.EnergyNet.ConnectionDescription;
+import ca.zootron.total_war.gui.CreativeGeneratorScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.PropertyDelegate;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ScreenHandlerContext;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class CreativeGeneratorBlockEntity extends BlockEntity implements EnergyNetProducer {
+public class CreativeGeneratorBlockEntity extends BlockEntity implements EnergyNetProducer, NamedScreenHandlerFactory {
   private EnergyNet energyNet;
+  private int output;
+
+  private final PropertyDelegate propertyDelegate = new PropertyDelegate() {
+    @Override
+    public int get(int index) {
+      return output;
+    }
+
+    @Override
+    public void set(int index, int value) {
+      output = value;
+    }
+
+    @Override
+    public int size() {
+      return 1;
+    }
+  };
 
   public CreativeGeneratorBlockEntity(BlockPos pos, BlockState state) {
     super(TWBlockEntities.CREATIVE_GENERATOR.blockEntity(), pos, state);
 
     energyNet = null;
+    output = (int) EnergyNetTier.LV.throughputLimit;
   }
 
   public static void tick(World world, BlockPos pos, BlockState state, CreativeGeneratorBlockEntity generator) {
@@ -73,8 +102,7 @@ public class CreativeGeneratorBlockEntity extends BlockEntity implements EnergyN
 
   @Override
   public double getOutput() {
-    return 256;
-    // TODO: make this value configurable
+    return output;
   }
 
   @Override
@@ -85,5 +113,28 @@ public class CreativeGeneratorBlockEntity extends BlockEntity implements EnergyN
   @Override
   public void setThroughput(double throughput) {
     // ignore throughput overload - this is a creative block
+  }
+
+  @Override
+  public void readNbt(NbtCompound nbt) {
+    super.readNbt(nbt);
+    output = nbt.getInt("output");
+  }
+
+  @Override
+  protected void writeNbt(NbtCompound nbt) {
+    super.writeNbt(nbt);
+    nbt.putInt("output", output);
+  }
+
+  @Override
+  public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+    return new CreativeGeneratorScreenHandler(syncId, playerInventory, propertyDelegate,
+        ScreenHandlerContext.create(world, pos));
+  }
+
+  @Override
+  public Text getDisplayName() {
+    return Text.translatable(getCachedState().getBlock().getTranslationKey());
   }
 }

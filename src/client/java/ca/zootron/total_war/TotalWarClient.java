@@ -14,6 +14,10 @@ public class TotalWarClient implements ClientModInitializer {
 
   @Override
   public void onInitializeClient() {
+    LOGGER.info("Initializing {} client", MODID);
+
+    TWScreens.init();
+
     LOGGER.info("Initialized {} client", MODID);
   }
 }
