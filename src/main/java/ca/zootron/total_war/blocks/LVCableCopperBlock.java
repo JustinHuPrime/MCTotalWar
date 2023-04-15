@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 import ca.zootron.total_war.TWBlockEntities;
 import ca.zootron.total_war.TotalWar;
 import ca.zootron.total_war.blockentities.LVCableCopperBlockEntity;
-import ca.zootron.total_war.energy.EnergyNetComponent;
+import ca.zootron.total_war.logistics.energy.EnergyNetComponent;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;

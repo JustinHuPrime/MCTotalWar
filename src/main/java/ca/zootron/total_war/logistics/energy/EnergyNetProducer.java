@@ -1,4 +1,4 @@
-package ca.zootron.total_war.energy;
+package ca.zootron.total_war.logistics.energy;
 
 /**
  * A component that produces energy

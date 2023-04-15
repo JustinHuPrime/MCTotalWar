@@ -22,11 +22,11 @@ package ca.zootron.total_war.blockentities;
 import org.jetbrains.annotations.Nullable;
 
 import ca.zootron.total_war.TWBlockEntities;
-import ca.zootron.total_war.energy.EnergyNet;
-import ca.zootron.total_war.energy.EnergyNetProducer;
-import ca.zootron.total_war.energy.EnergyNetTier;
-import ca.zootron.total_war.energy.EnergyNet.ConnectionDescription;
 import ca.zootron.total_war.gui.CreativeGeneratorScreenHandler;
+import ca.zootron.total_war.logistics.energy.EnergyNet;
+import ca.zootron.total_war.logistics.energy.EnergyNetProducer;
+import ca.zootron.total_war.logistics.energy.EnergyNetTier;
+import ca.zootron.total_war.logistics.energy.EnergyNet.ConnectionDescription;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;

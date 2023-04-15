@@ -17,32 +17,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-package ca.zootron.total_war.energy;
-
-import org.jetbrains.annotations.Nullable;
+package ca.zootron.total_war.logistics.energy;
 
 /**
- * A generic component (e.g. a cable, a meter, a switch)
- * 
- * @implSpec implementer *MUST* ensure that two equal EnergyNetComponents refer
- *           to the same BlockEntity
+ * A component interested in more detailed network stats
  */
-public interface EnergyNetComponent {
+public interface EnergyNetMeter extends EnergyNetComponent {
   /**
-   * @return the energy net this component is a part of
+   * @param ration how much energy any consumer received, or +Inf.0 if open
+   *               circuit
    */
-  @Nullable
-  EnergyNet getEnergyNet();
-
-  /**
-   * Set the energy net this component is a part of
-   */
-  void setEnergyNet(EnergyNet energyNet);
-
-  /**
-   * Set the current network throughput
-   * 
-   * @param throughput current network throughput, in EU
-   */
-  void setThroughput(double throughput);
+  void setRation(double ration);
 }
