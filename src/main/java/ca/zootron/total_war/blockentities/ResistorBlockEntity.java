@@ -25,18 +25,45 @@ import ca.zootron.total_war.TWBlockEntities;
 import ca.zootron.total_war.energy.EnergyNet;
 import ca.zootron.total_war.energy.EnergyNetConsumer;
 import ca.zootron.total_war.energy.EnergyNet.ConnectionDescription;
+import ca.zootron.total_war.gui.ResistorScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.PropertyDelegate;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ScreenHandlerContext;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ResistorBlockEntity extends BlockEntity implements EnergyNetConsumer {
+public class ResistorBlockEntity extends BlockEntity implements EnergyNetConsumer, NamedScreenHandlerFactory {
   private EnergyNet energyNet;
+  private int dissipated;
+
+  private final PropertyDelegate propertyDelegate = new PropertyDelegate() {
+    @Override
+    public int get(int index) {
+      return dissipated;
+    }
+
+    @Override
+    public void set(int index, int value) {
+      dissipated = value;
+    }
+
+    @Override
+    public int size() {
+      return 1;
+    }
+  };
 
   public ResistorBlockEntity(BlockPos pos, BlockState state) {
     super(TWBlockEntities.RESISTOR.blockEntity(), pos, state);
 
     energyNet = null;
+    dissipated = 0;
   }
 
   public static void tick(World world, BlockPos pos, BlockState state, ResistorBlockEntity resistor) {
@@ -74,10 +101,22 @@ public class ResistorBlockEntity extends BlockEntity implements EnergyNetConsume
   @Override
   public void setInput(double energy) {
     // explicitly ignore the input - this is a resistor and will void any energy
+    this.dissipated = (int) Math.round(energy);
   }
 
   @Override
   public void setThroughput(double throughput) {
-    // ignore throughput - this is a resistor and has no throughput limit
+    // ignored
+  }
+
+  @Override
+  public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+    return new ResistorScreenHandler(syncId, playerInventory, propertyDelegate,
+        ScreenHandlerContext.create(world, pos));
+  }
+
+  @Override
+  public Text getDisplayName() {
+    return Text.translatable(getCachedState().getBlock().getTranslationKey());
   }
 }

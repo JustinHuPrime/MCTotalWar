@@ -17,18 +17,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-package ca.zootron.total_war;
+package ca.zootron.total_war.gui;
 
-import ca.zootron.total_war.gui.CreativeGeneratorScreen;
-import ca.zootron.total_war.gui.ResistorScreen;
-import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ScreenHandlerType;
 
-public abstract class TWScreens {
-  private TWScreens() {
-  }
+public abstract class DynamicHeightBackgroundScreenHandler extends ScreenHandler {
+  public final int menuHeight;
 
-  public static void init() {
-    HandledScreens.register(TWScreenHandlers.CREATIVE_GENERATOR, CreativeGeneratorScreen::new);
-    HandledScreens.register(TWScreenHandlers.RESISTOR, ResistorScreen::new);
+  public DynamicHeightBackgroundScreenHandler(ScreenHandlerType<?> type, int syncId, int menuHeight) {
+    super(type, syncId);
+    this.menuHeight = menuHeight;
   }
 }

@@ -27,19 +27,18 @@ import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.world.World;
 
-public class CreativeGeneratorScreenHandler extends DynamicHeightBackgroundScreenHandler {
+public class ResistorScreenHandler extends DynamicHeightBackgroundScreenHandler {
   private final PropertyDelegate propertyDelegate;
   private final ScreenHandlerContext context;
 
-  public CreativeGeneratorScreenHandler(int syncId, PlayerInventory playerInventory) {
+  public ResistorScreenHandler(int syncId, PlayerInventory playerInventory) {
     this(syncId, playerInventory, new ArrayPropertyDelegate(1), ScreenHandlerContext.EMPTY);
   }
 
-  public CreativeGeneratorScreenHandler(int syncId,
+  public ResistorScreenHandler(int syncId,
       PlayerInventory playerInventory, PropertyDelegate propertyDelegate, ScreenHandlerContext context) {
-    super(TWScreenHandlers.CREATIVE_GENERATOR, syncId, 146);
+    super(TWScreenHandlers.RESISTOR, syncId, 136);
 
     this.propertyDelegate = propertyDelegate;
     this.addProperties(propertyDelegate);
@@ -56,13 +55,8 @@ public class CreativeGeneratorScreenHandler extends DynamicHeightBackgroundScree
     }
   }
 
-  public int getOutput() {
+  public int getThroughput() {
     return propertyDelegate.get(0);
-  }
-
-  public void setOutput(int output) {
-    propertyDelegate.set(0, output);
-    context.run(World::markDirty);
   }
 
   @Override
@@ -72,6 +66,6 @@ public class CreativeGeneratorScreenHandler extends DynamicHeightBackgroundScree
 
   @Override
   public boolean canUse(PlayerEntity player) {
-    return player.isCreative();
+    return true;
   }
 }

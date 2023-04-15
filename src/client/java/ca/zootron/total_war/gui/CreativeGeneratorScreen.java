@@ -19,23 +19,15 @@
 
 package ca.zootron.total_war.gui;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-
 import ca.zootron.total_war.TWPackets;
-import ca.zootron.total_war.TotalWar;
 import ca.zootron.total_war.gui.widget.TextButtonWidget;
 import ca.zootron.total_war.packets.c2s.UpdateCreativeGeneratorOutput;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 
-public class CreativeGeneratorScreen extends HandledScreen<CreativeGeneratorScreenHandler> {
-  public static final Identifier BACKGROUND = new Identifier(TotalWar.MODID, "textures/gui/background.png");
-
+public class CreativeGeneratorScreen extends DynamicHeightBackgroundScreen<CreativeGeneratorScreenHandler> {
   public CreativeGeneratorScreen(CreativeGeneratorScreenHandler handler, PlayerInventory inventory, Text title) {
     super(handler, inventory, title);
   }
@@ -43,31 +35,10 @@ public class CreativeGeneratorScreen extends HandledScreen<CreativeGeneratorScre
   @Override
   protected void init() {
     super.init();
-    backgroundHeight = handler.menuHeight;
-    playerInventoryTitleY = backgroundHeight - 94;
     addDrawableChild(new HalveOutputButtonWidget(x + backgroundWidth / 2 - 30, y + 34));
     addDrawableChild(new DecrementOutputButtonWidget(x + backgroundWidth / 2 - 10, y + 34));
     addDrawableChild(new IncrementOutputButtonWidget(x + backgroundWidth / 2, y + 34));
     addDrawableChild(new DoubleOutputButtonWidget(x + backgroundWidth / 2 + 10, y + 34));
-  }
-
-  @Override
-  public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-    renderBackground(matrices);
-    super.render(matrices, mouseX, mouseY, delta);
-    drawMouseoverTooltip(matrices, mouseX, mouseY);
-  }
-
-  @Override
-  protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-    RenderSystem.setShader(GameRenderer::getPositionTexProgram);
-    RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
-    RenderSystem.setShaderTexture(0, BACKGROUND);
-
-    // upper part
-    drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight - 83);
-    // lower part
-    drawTexture(matrices, x, y + backgroundHeight - 83, 0, 173, backgroundWidth, 83);
   }
 
   @Override

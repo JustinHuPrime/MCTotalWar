@@ -20,6 +20,7 @@
 package ca.zootron.total_war;
 
 import ca.zootron.total_war.gui.CreativeGeneratorScreenHandler;
+import ca.zootron.total_war.gui.ResistorScreenHandler;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.screen.ScreenHandler;
@@ -30,6 +31,8 @@ import net.minecraft.screen.ScreenHandlerType.Factory;
 public abstract class TWScreenHandlers {
   public static final ScreenHandlerType<CreativeGeneratorScreenHandler> CREATIVE_GENERATOR = register(
       "creative_generator", CreativeGeneratorScreenHandler::new);
+  public static final ScreenHandlerType<ResistorScreenHandler> RESISTOR = register(
+      "resistor", ResistorScreenHandler::new);
 
   private static <T extends ScreenHandler> ScreenHandlerType<T> register(String id, Factory<T> ctor) {
     return Registry.register(Registries.SCREEN_HANDLER, new Identifier(TotalWar.MODID, id),
