@@ -1,4 +1,9 @@
-// 1.19.3	2023-04-15T11:48:01.778811512	Total War/Block Loot Tables
+// 1.19.3	2023-04-15T23:41:54.224019646	Total War/Block Loot Tables
+28f6a0e33841010e95f921e173a8687e74a7e803 data/total_war/loot_tables/blocks/ore_rock_copper.json
 f3d488873626a56104ccdca8841ea7b921c2c074 data/total_war/loot_tables/blocks/lv_cable_copper.json
+581604e1965c15bba39faed07744e80156070fc5 data/total_war/loot_tables/blocks/slag.json
+43e639ca9402060ece8a2a0e1d5f5a0527fa6e54 data/total_war/loot_tables/blocks/miner.json
 1a6dfb978ba449db0d833b4137450d8b9ad90e59 data/total_war/loot_tables/blocks/resistor.json
+af61d5a2e2786e9075dc693d7b0494cdf6f35b3f data/total_war/loot_tables/blocks/ore_rock_tin.json
 c07053c381bdfaf7443b724108557dd85aefa199 data/total_war/loot_tables/blocks/reinforced_concrete.json
+bbb74d3ccb1bb62233caa21d1262f50c2a545667 data/total_war/loot_tables/blocks/ore_rock_iron.json

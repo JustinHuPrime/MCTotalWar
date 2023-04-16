@@ -2,7 +2,12 @@
   "replace": false,
   "values": [
     "total_war:reinforced_concrete",
+    "total_war:slag",
+    "total_war:ore_rock_iron",
+    "total_war:ore_rock_copper",
+    "total_war:ore_rock_tin",
     "total_war:resistor",
-    "total_war:lv_cable_copper"
+    "total_war:lv_cable_copper",
+    "total_war:miner"
   ]
 }

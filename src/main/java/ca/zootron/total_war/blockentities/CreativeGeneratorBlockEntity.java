@@ -26,7 +26,6 @@ import ca.zootron.total_war.gui.CreativeGeneratorScreenHandler;
 import ca.zootron.total_war.logistics.energy.EnergyNet;
 import ca.zootron.total_war.logistics.energy.EnergyNetProducer;
 import ca.zootron.total_war.logistics.energy.EnergyNetTier;
-import ca.zootron.total_war.logistics.energy.EnergyNet.ConnectionDescription;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -70,13 +69,7 @@ public class CreativeGeneratorBlockEntity extends BlockEntity implements EnergyN
 
   public static void tick(World world, BlockPos pos, BlockState state, CreativeGeneratorBlockEntity generator) {
     if (!world.isClient) {
-      if (generator.energyNet == null) {
-        ConnectionDescription connection = EnergyNet.findOrCreateEnergyNet(world, pos);
-        generator.energyNet = connection.energyNet();
-        generator.energyNet.addProducer(generator, connection.neighbours());
-      }
-      generator.energyNet.tickComponent(world.getTime());
-
+      EnergyNetProducer.tickConsumerNet(world, pos, state, generator);
       // no block specific actions - this is a creative block
     }
   }

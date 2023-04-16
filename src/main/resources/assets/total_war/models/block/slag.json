@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "total_war:block/slag_side",
+    "east": "total_war:block/slag_side",
+    "south": "total_war:block/slag_side",
+    "west": "total_war:block/slag_side",
+    "up": "total_war:block/slag_top",
+    "down": "total_war:block/slag_bottom",
+    "particle": "total_war:block/slag_side"
+  }
+}

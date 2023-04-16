@@ -39,7 +39,17 @@ public abstract class TWBlocks {
   public static final List<BlockRecord> blocks = new ArrayList<>();
 
   public static final BlockRecord REINFORCED_CONCRETE = block("Reinforced Concrete", "reinforced_concrete",
-      FabricBlockSettings.of(Material.STONE).strength(6f, 12f).requiresTool());
+      FabricBlockSettings.of(Material.STONE).strength(6, 12).requiresTool());
+  public static final BlockRecord SLAG = block("Slag", "slag",
+      FabricBlockSettings.of(Material.METAL).strength(5, 6).requiresTool(), true);
+
+  // ores
+  public static final BlockRecord ORE_ROCK_IRON = block("Hematite", "ore_rock_iron",
+      FabricBlockSettings.of(Material.STONE).strength(5, 6).requiresTool());
+  public static final BlockRecord ORE_ROCK_COPPER = block("Chalcopyrite", "ore_rock_copper",
+      FabricBlockSettings.of(Material.STONE).strength(5, 6).requiresTool());
+  public static final BlockRecord ORE_ROCK_TIN = block("Cassiterite", "ore_rock_tin",
+      FabricBlockSettings.of(Material.STONE).strength(5, 6).requiresTool());
 
   public static BlockRecord block(String englishName, String id, FabricBlockSettings blockSettings) {
     return block(englishName, id, blockSettings, false);

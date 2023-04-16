@@ -25,7 +25,6 @@ import ca.zootron.total_war.TWBlockEntities;
 import ca.zootron.total_war.gui.ResistorScreenHandler;
 import ca.zootron.total_war.logistics.energy.EnergyNet;
 import ca.zootron.total_war.logistics.energy.EnergyNetConsumer;
-import ca.zootron.total_war.logistics.energy.EnergyNet.ConnectionDescription;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -67,14 +66,8 @@ public class ResistorBlockEntity extends BlockEntity implements EnergyNetConsume
 
   public static void tick(World world, BlockPos pos, BlockState state, ResistorBlockEntity resistor) {
     if (!world.isClient) {
-      if (resistor.energyNet == null) {
-        ConnectionDescription connection = EnergyNet.findOrCreateEnergyNet(world, pos);
-        resistor.energyNet = connection.energyNet();
-        resistor.energyNet.addConsumer(resistor, connection.neighbours());
-      }
-      resistor.energyNet.tickComponent(world.getTime());
-
-      // no block-specific tick actions; this is a resistor and will void any energy
+      EnergyNetConsumer.tickConsumerNet(world, pos, state, resistor);
+      // no block-specific actions - this is a resistor
     }
   }
 

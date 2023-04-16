@@ -1,10 +1,17 @@
 {
   "block.total_war.creative_generator": "Creative Generator",
   "block.total_war.lv_cable_copper": "LV Cable (Copper)",
+  "block.total_war.miner": "Miner",
+  "block.total_war.ore_rock_copper": "Chalcopyrite",
+  "block.total_war.ore_rock_iron": "Hematite",
+  "block.total_war.ore_rock_tin": "Cassiterite",
   "block.total_war.reinforced_concrete": "Reinforced Concrete",
   "block.total_war.resistor": "Resistor",
+  "block.total_war.slag": "Slag",
   "book.total_war.landing_text": "A tech and military mod for Minecraft",
   "book.total_war.subtitle": "For Total War version ${version}",
+  "hud.total_war.ore_finder_message": "Searching for %s",
+  "hud.total_war.ore_scanner_message": "Found %dx vein of %s",
   "item.total_war.cannon_shell_empty": "Cannon Shell (Empty)",
   "item.total_war.cannon_shell_explosive": "Cannon Shell (Explosive)",
   "item.total_war.cannon_shell_gas": "Cannon Shell (Gas)",
@@ -12,5 +19,7 @@
   "item.total_war.cannon_shell_smoke": "Cannon Shell (Smoke)",
   "item.total_war.copper_nugget": "Copper Nugget",
   "item.total_war.guidebook": "Total War Guidebook",
+  "item.total_war.ore_finder_creative": "Creative Ore Finder",
+  "item.total_war.ore_scanner_creative": "Creative Ore Scanner",
   "itemGroup.total_war.group": "Total War"
 }

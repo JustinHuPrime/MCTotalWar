@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "total_war:block/miner",
+    "east": "total_war:block/miner",
+    "south": "total_war:block/miner",
+    "west": "total_war:block/miner",
+    "up": "total_war:block/machine_casing",
+    "down": "total_war:block/machine_casing",
+    "particle": "total_war:block/miner"
+  }
+}

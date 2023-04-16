@@ -24,9 +24,11 @@ import java.util.List;
 
 import ca.zootron.total_war.blockentities.CreativeGeneratorBlockEntity;
 import ca.zootron.total_war.blockentities.LVCableCopperBlockEntity;
+import ca.zootron.total_war.blockentities.MinerBlockEntity;
 import ca.zootron.total_war.blockentities.ResistorBlockEntity;
 import ca.zootron.total_war.blocks.CreativeGeneratorBlock;
 import ca.zootron.total_war.blocks.LVCableCopperBlock;
+import ca.zootron.total_war.blocks.MinerBlock;
 import ca.zootron.total_war.blocks.ResistorBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -50,6 +52,11 @@ import net.minecraft.util.Identifier;
 public abstract class TWBlockEntities {
   public static final List<BlockEntityRecord<?>> blockEntities = new ArrayList<>();
 
+  public static final BlockEntityRecord<CreativeGeneratorBlockEntity> CREATIVE_GENERATOR = blockEntity(
+      "Creative Generator", "creative_generator",
+      new CreativeGeneratorBlock(FabricBlockSettings.of(Material.METAL).strength(-1.0f, 3600000.0f).dropsNothing()
+          .allowsSpawning((state, view, pos, entity) -> false)),
+      CreativeGeneratorBlockEntity::new);
   public static final BlockEntityRecord<ResistorBlockEntity> RESISTOR = blockEntity("Resistor", "resistor",
       new ResistorBlock(FabricBlockSettings.of(Material.STONE).strength(5, 6).requiresTool()),
       ResistorBlockEntity::new);
@@ -62,11 +69,9 @@ public abstract class TWBlockEntities {
       new LVCableCopperBlock(FabricBlockSettings.of(Material.METAL).strength(3, 6).requiresTool()),
       LVCableCopperBlockEntity::new, true);
 
-  public static final BlockEntityRecord<CreativeGeneratorBlockEntity> CREATIVE_GENERATOR = blockEntity(
-      "Creative Generator", "creative_generator",
-      new CreativeGeneratorBlock(FabricBlockSettings.of(Material.METAL).strength(-1.0f, 3600000.0f).dropsNothing()
-          .allowsSpawning((state, view, pos, entity) -> false)),
-      CreativeGeneratorBlockEntity::new);
+  public static final BlockEntityRecord<MinerBlockEntity> MINER = blockEntity("Miner", "miner",
+      new MinerBlock(FabricBlockSettings.of(Material.METAL).strength(5, 6).requiresTool()), MinerBlockEntity::new,
+      true);
 
   public static <T extends BlockEntity, U extends Block & BlockEntityProvider> BlockEntityRecord<T> blockEntity(
       String englishName, String id,

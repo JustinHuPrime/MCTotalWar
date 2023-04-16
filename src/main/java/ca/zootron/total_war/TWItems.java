@@ -22,6 +22,8 @@ package ca.zootron.total_war;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.zootron.total_war.items.CreativeOreFinder;
+import ca.zootron.total_war.items.CreativeOreScanner;
 import ca.zootron.total_war.items.GuidebookItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
@@ -37,6 +39,11 @@ public abstract class TWItems {
 
   public static final ItemRecord GUIDEBOOK = item("Total War Guidebook", "guidebook",
       new GuidebookItem(new FabricItemSettings()));
+
+  public static final ItemRecord CREATIVE_ORE_SCANNER = item("Creative Ore Scanner", "ore_scanner_creative",
+      new CreativeOreScanner(new FabricItemSettings()));
+  public static final ItemRecord CREATIVE_ORE_FINDER = item("Creative Ore Finder", "ore_finder_creative",
+      new CreativeOreFinder(new FabricItemSettings()), true);
 
   public static final ItemRecord CANNON_SHELL_EMPTY = item("Cannon Shell (Empty)", "cannon_shell_empty");
   public static final ItemRecord CANNON_SHELL_SHRAPNEL = item("Cannon Shell (Shrapnel)", "cannon_shell_shrapnel");

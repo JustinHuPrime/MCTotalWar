@@ -37,11 +37,22 @@ public class TWBlockTagProvider extends FabricTagProvider.BlockTagProvider {
   protected void configure(WrapperLookup arg) {
     // blocks
     getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(TWBlocks.REINFORCED_CONCRETE.block().getBlock());
+    getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(TWBlocks.REINFORCED_CONCRETE.block().getBlock());
+    getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(TWBlocks.SLAG.block().getBlock());
+    getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(TWBlocks.SLAG.block().getBlock());
+    getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(TWBlocks.ORE_ROCK_IRON.block().getBlock());
+    getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(TWBlocks.ORE_ROCK_IRON.block().getBlock());
+    getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(TWBlocks.ORE_ROCK_COPPER.block().getBlock());
+    getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(TWBlocks.ORE_ROCK_COPPER.block().getBlock());
+    getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(TWBlocks.ORE_ROCK_TIN.block().getBlock());
+    getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(TWBlocks.ORE_ROCK_TIN.block().getBlock());
 
     // block entities
     getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(TWBlockEntities.RESISTOR.block().getBlock());
     getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(TWBlockEntities.RESISTOR.block().getBlock());
     getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(TWBlockEntities.LV_CABLE_COPPER.block().getBlock());
     getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(TWBlockEntities.LV_CABLE_COPPER.block().getBlock());
+    getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(TWBlockEntities.MINER.block().getBlock());
+    getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(TWBlockEntities.MINER.block().getBlock());
   }
 }

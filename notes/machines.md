@@ -2,7 +2,7 @@
 
 ## Recipe Speed
 
-Recipes are listed as consuming input materials and some amount of energy. Recipies can be completed as fast as there is input energy.
+Recipes are listed as consuming input materials and some amount of energy. Recipes can be completed as fast as there is input energy.
 
 ## Arrays
 
@@ -10,15 +10,35 @@ An array is a multiblock allowing for more lag-efficient processing. An array ac
 
 ## Machine List
 
-Furnace
+### Gathering
 
-Macerator
+Miner
 
-Compressor
+Oil Well
+
+### Power
+
+### Processing
+
+Furnace (Smelting)
+
+Macerator (Ore Processing, Ingot -> Metal Dust)
+
+Mixer (Metal Dusts -> Alloy Dusts)
+
+Compressor (Ingot -> Plate)
+
+Wiremill (Ingot -> Wire)
+
+Gas Centrifuge (Nuclear fuel -> Isotopes)
+
+Lathe (Ingot -> )
+
+Mill (Ingot -> Things (gear))
 
 Cutter
 
-Crafter
+Assembler
 
 Chemical Reactor
 

@@ -8,7 +8,7 @@ Lithium - battery metal (lithium-ion batteries), nuclear material (tritium produ
 
 Beryllium - nuclear material (neutron shielding) - from beryl
 
-Boron - high detail semiconductor dopant, nuclear material (control rod) - from colemanite
+Boron - high detail semiconductor dopant, nuclear material (control rod) - from Kernite
 
 Carbon - chemical feedstock - from combustibles or other organics
 

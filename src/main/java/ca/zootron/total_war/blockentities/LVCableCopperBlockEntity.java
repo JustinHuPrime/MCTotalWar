@@ -25,7 +25,6 @@ import ca.zootron.total_war.TWBlockEntities;
 import ca.zootron.total_war.logistics.energy.EnergyNet;
 import ca.zootron.total_war.logistics.energy.EnergyNetComponent;
 import ca.zootron.total_war.logistics.energy.EnergyNetTier;
-import ca.zootron.total_war.logistics.energy.EnergyNet.ConnectionDescription;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
@@ -46,12 +45,7 @@ public class LVCableCopperBlockEntity extends BlockEntity implements EnergyNetCo
 
   public static void tick(World world, BlockPos pos, BlockState state, LVCableCopperBlockEntity cable) {
     if (!world.isClient) {
-      if (cable.energyNet == null) {
-        ConnectionDescription connection = EnergyNet.findOrCreateEnergyNet(world, pos);
-        cable.energyNet = connection.energyNet();
-        cable.energyNet.addComponent(cable, connection.neighbours());
-      }
-      cable.energyNet.tickComponent(world.getTime());
+      EnergyNetComponent.tickConsumerNet(world, pos, state, cable);
 
       if (cable.throughput > EnergyNetTier.LV.throughputLimit) {
         // melt

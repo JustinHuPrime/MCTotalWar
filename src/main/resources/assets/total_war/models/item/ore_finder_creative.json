@@ -1,0 +1,41 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "total_war:item/ore_finder_creative_16"
+    },
+    "overrides": [
+        { "predicate": { "angle": 0.000000 }, "model": "total_war:item/ore_finder_creative" },
+        { "predicate": { "angle": 0.015625 }, "model": "total_war:item/ore_finder_creative_17" },
+        { "predicate": { "angle": 0.046875 }, "model": "total_war:item/ore_finder_creative_18" },
+        { "predicate": { "angle": 0.078125 }, "model": "total_war:item/ore_finder_creative_19" },
+        { "predicate": { "angle": 0.109375 }, "model": "total_war:item/ore_finder_creative_20" },
+        { "predicate": { "angle": 0.140625 }, "model": "total_war:item/ore_finder_creative_21" },
+        { "predicate": { "angle": 0.171875 }, "model": "total_war:item/ore_finder_creative_22" },
+        { "predicate": { "angle": 0.203125 }, "model": "total_war:item/ore_finder_creative_23" },
+        { "predicate": { "angle": 0.234375 }, "model": "total_war:item/ore_finder_creative_24" },
+        { "predicate": { "angle": 0.265625 }, "model": "total_war:item/ore_finder_creative_25" },
+        { "predicate": { "angle": 0.296875 }, "model": "total_war:item/ore_finder_creative_26" },
+        { "predicate": { "angle": 0.328125 }, "model": "total_war:item/ore_finder_creative_27" },
+        { "predicate": { "angle": 0.359375 }, "model": "total_war:item/ore_finder_creative_28" },
+        { "predicate": { "angle": 0.390625 }, "model": "total_war:item/ore_finder_creative_29" },
+        { "predicate": { "angle": 0.421875 }, "model": "total_war:item/ore_finder_creative_30" },
+        { "predicate": { "angle": 0.453125 }, "model": "total_war:item/ore_finder_creative_31" },
+        { "predicate": { "angle": 0.484375 }, "model": "total_war:item/ore_finder_creative_00" },
+        { "predicate": { "angle": 0.515625 }, "model": "total_war:item/ore_finder_creative_01" },
+        { "predicate": { "angle": 0.546875 }, "model": "total_war:item/ore_finder_creative_02" },
+        { "predicate": { "angle": 0.578125 }, "model": "total_war:item/ore_finder_creative_03" },
+        { "predicate": { "angle": 0.609375 }, "model": "total_war:item/ore_finder_creative_04" },
+        { "predicate": { "angle": 0.640625 }, "model": "total_war:item/ore_finder_creative_05" },
+        { "predicate": { "angle": 0.671875 }, "model": "total_war:item/ore_finder_creative_06" },
+        { "predicate": { "angle": 0.703125 }, "model": "total_war:item/ore_finder_creative_07" },
+        { "predicate": { "angle": 0.734375 }, "model": "total_war:item/ore_finder_creative_08" },
+        { "predicate": { "angle": 0.765625 }, "model": "total_war:item/ore_finder_creative_09" },
+        { "predicate": { "angle": 0.796875 }, "model": "total_war:item/ore_finder_creative_10" },
+        { "predicate": { "angle": 0.828125 }, "model": "total_war:item/ore_finder_creative_11" },
+        { "predicate": { "angle": 0.859375 }, "model": "total_war:item/ore_finder_creative_12" },
+        { "predicate": { "angle": 0.890625 }, "model": "total_war:item/ore_finder_creative_13" },
+        { "predicate": { "angle": 0.921875 }, "model": "total_war:item/ore_finder_creative_14" },
+        { "predicate": { "angle": 0.953125 }, "model": "total_war:item/ore_finder_creative_15" },
+        { "predicate": { "angle": 0.984375 }, "model": "total_war:item/ore_finder_creative" }
+    ]
+}

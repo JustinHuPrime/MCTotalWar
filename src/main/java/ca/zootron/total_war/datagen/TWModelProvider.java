@@ -56,7 +56,9 @@ public class TWModelProvider extends FabricModelProvider {
 	@Override
 	public void generateItemModels(ItemModelGenerator itemModelGenerator) {
 		for (ItemRecord item : TWItems.items) {
-			itemModelGenerator.register(item.item(), Models.GENERATED);
+			if (!item.customModel()) {
+				itemModelGenerator.register(item.item(), Models.GENERATED);
+			}
 		}
 	}
 }

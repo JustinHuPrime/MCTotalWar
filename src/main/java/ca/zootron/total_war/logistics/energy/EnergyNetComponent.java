@@ -21,6 +21,11 @@ package ca.zootron.total_war.logistics.energy;
 
 import org.jetbrains.annotations.Nullable;
 
+import ca.zootron.total_war.logistics.energy.EnergyNet.ConnectionDescription;
+import net.minecraft.block.BlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
 /**
  * A generic component (e.g. a cable, a meter, a switch)
  * 
@@ -45,4 +50,21 @@ public interface EnergyNetComponent {
    * @param throughput current network throughput, in EU
    */
   void setThroughput(double throughput);
+
+  /**
+   * Handle generic energy net per-tick actions (server side only)
+   * 
+   * @param world    from static tick params
+   * @param pos      from static tick params
+   * @param state    from static tick params
+   * @param consumer from static tick params
+   */
+  public static void tickConsumerNet(World world, BlockPos pos, BlockState state, EnergyNetComponent consumer) {
+    if (consumer.getEnergyNet() == null) {
+      ConnectionDescription connection = EnergyNet.findOrCreateEnergyNet(world, pos);
+      consumer.setEnergyNet(connection.energyNet());
+      connection.energyNet().addComponent(consumer, connection.neighbours());
+    }
+    consumer.getEnergyNet().tickComponent(world.getTime());
+  }
 }

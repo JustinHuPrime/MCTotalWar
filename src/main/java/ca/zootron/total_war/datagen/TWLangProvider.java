@@ -43,6 +43,10 @@ public class TWLangProvider extends FabricLanguageProvider {
     translationBuilder.add("book.total_war.landing_text", "A tech and military mod for Minecraft");
     translationBuilder.add("book.total_war.subtitle", "For Total War version ${version}");
 
+    // ore scanner and finder
+    translationBuilder.add("hud.total_war.ore_scanner_message", "Found %dx vein of %s");
+    translationBuilder.add("hud.total_war.ore_finder_message", "Searching for %s");
+
     // items
     translationBuilder.add(TotalWar.ITEM_GROUP, "Total War");
     for (ItemRecord item : TWItems.items) {
