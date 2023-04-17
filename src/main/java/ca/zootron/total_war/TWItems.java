@@ -26,6 +26,7 @@ import ca.zootron.total_war.items.AssayHammerItem;
 import ca.zootron.total_war.items.CreativeOreFinderItem;
 import ca.zootron.total_war.items.CreativeOreScannerItem;
 import ca.zootron.total_war.items.GuidebookItem;
+import ca.zootron.total_war.items.SurveyKitItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -48,6 +49,8 @@ public abstract class TWItems {
 
   public static final ItemRecord ASSAY_HAMMER = item("Assay Hammer", "assay_hammer",
       new AssayHammerItem(new FabricItemSettings().maxDamage(250)), true);
+  public static final ItemRecord SURVEY_KIT = item("Survey Kit", "survey_kit",
+      new SurveyKitItem(new FabricItemSettings().maxCount(1)), true);
 
   public static final ItemRecord CANNON_SHELL_EMPTY = item("Cannon Shell (Empty)", "cannon_shell_empty");
   public static final ItemRecord CANNON_SHELL_SHRAPNEL = item("Cannon Shell (Shrapnel)", "cannon_shell_shrapnel");

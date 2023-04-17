@@ -33,6 +33,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.zootron.total_war.items.CreativeOreFinderItem;
+import ca.zootron.total_war.items.SurveyKitItem;
 
 /**
  * Client entrypoint
@@ -50,6 +51,10 @@ public class TotalWarClient implements ClientModInitializer {
     ModelPredicateProviderRegistry.register(TWItems.CREATIVE_ORE_FINDER.item(), new Identifier("angle"),
         new CompassAnglePredicateProvider((ClientWorld world, ItemStack stack, Entity entity) -> {
           return CreativeOreFinderItem.getCoordinates(stack, world);
+        }));
+    ModelPredicateProviderRegistry.register(TWItems.SURVEY_KIT.item(), new Identifier("angle"),
+        new CompassAnglePredicateProvider((ClientWorld world, ItemStack stack, Entity entity) -> {
+          return SurveyKitItem.getCoordinates(stack, world);
         }));
 
     LOGGER.info("Initialized {} client", MODID);

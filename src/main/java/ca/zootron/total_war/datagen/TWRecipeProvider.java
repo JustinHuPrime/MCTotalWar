@@ -53,6 +53,13 @@ public class TWRecipeProvider extends FabricRecipeProvider {
         .criterion("has_iron_ingot", conditionsFromItem(Items.IRON_INGOT))
         .offerTo(exporter);
 
+    // survey kit
+    ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, TWItems.SURVEY_KIT.item()).pattern(" i ").pattern("iai")
+        .pattern(" i ")
+        .input('i', Items.IRON_INGOT).input('a', Items.AMETHYST_SHARD)
+        .criterion("has_amethyst_shard", conditionsFromItem(Items.AMETHYST_SHARD))
+        .offerTo(exporter);
+
     // copper nugget
     TagKey<Item> copperNuggets = TagKey.of(RegistryKeys.ITEM, new Identifier("c", "copper_nuggets"));
     ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, TWItems.COPPER_NUGGET.item(), 9).input(Items.COPPER_INGOT)
