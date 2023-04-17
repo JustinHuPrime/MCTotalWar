@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ca.zootron.total_war.items.CreativeOreFinder;
+import ca.zootron.total_war.items.CreativeOreFinderItem;
 
 /**
  * Client entrypoint
@@ -30,7 +30,7 @@ public class TotalWarClient implements ClientModInitializer {
     // item display stuff: ore finders
     ModelPredicateProviderRegistry.register(TWItems.CREATIVE_ORE_FINDER.item(), new Identifier("angle"),
         new CompassAnglePredicateProvider((ClientWorld world, ItemStack stack, Entity entity) -> {
-          return CreativeOreFinder.getCoordinates(stack, world);
+          return CreativeOreFinderItem.getCoordinates(stack, world);
         }));
 
     LOGGER.info("Initialized {} client", MODID);

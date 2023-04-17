@@ -10,8 +10,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class CreativeOreScanner extends Item {
-  public CreativeOreScanner(Settings settings) {
+public class CreativeOreScannerItem extends Item {
+  public CreativeOreScannerItem(Settings settings) {
     super(settings);
   }
 

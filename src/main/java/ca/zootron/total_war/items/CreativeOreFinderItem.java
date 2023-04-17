@@ -20,10 +20,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.GlobalPos;
 import net.minecraft.world.World;
 
-public class CreativeOreFinder extends Item {
+public class CreativeOreFinderItem extends Item {
   public static final int SEARCH_RADIUS = 100;
 
-  public CreativeOreFinder(Settings settings) {
+  public CreativeOreFinderItem(Settings settings) {
     super(settings);
   }
 
