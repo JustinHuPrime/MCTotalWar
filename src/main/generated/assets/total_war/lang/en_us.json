@@ -12,6 +12,7 @@
   "book.total_war.subtitle": "For Total War version ${version}",
   "hud.total_war.ore_finder_message": "Searching for %s",
   "hud.total_war.ore_scanner_message": "Found %dx vein of %s",
+  "item.total_war.assay_hammer": "Assay Hammer",
   "item.total_war.cannon_shell_empty": "Cannon Shell (Empty)",
   "item.total_war.cannon_shell_explosive": "Cannon Shell (Explosive)",
   "item.total_war.cannon_shell_gas": "Cannon Shell (Gas)",

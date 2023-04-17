@@ -22,6 +22,7 @@ package ca.zootron.total_war;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.zootron.total_war.items.AssayHammerItem;
 import ca.zootron.total_war.items.CreativeOreFinderItem;
 import ca.zootron.total_war.items.CreativeOreScannerItem;
 import ca.zootron.total_war.items.GuidebookItem;
@@ -44,6 +45,9 @@ public abstract class TWItems {
       new CreativeOreScannerItem(new FabricItemSettings()));
   public static final ItemRecord CREATIVE_ORE_FINDER = item("Creative Ore Finder", "ore_finder_creative",
       new CreativeOreFinderItem(new FabricItemSettings()), true);
+
+  public static final ItemRecord ASSAY_HAMMER = item("Assay Hammer", "assay_hammer",
+      new AssayHammerItem(new FabricItemSettings().maxDamage(250)), true);
 
   public static final ItemRecord CANNON_SHELL_EMPTY = item("Cannon Shell (Empty)", "cannon_shell_empty");
   public static final ItemRecord CANNON_SHELL_SHRAPNEL = item("Cannon Shell (Shrapnel)", "cannon_shell_shrapnel");

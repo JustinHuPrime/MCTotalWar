@@ -41,6 +41,18 @@ public class TWRecipeProvider extends FabricRecipeProvider {
 
   @Override
   public void generate(Consumer<RecipeJsonProvider> exporter) {
+    // items
+    ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, TWItems.GUIDEBOOK.item()).input(Items.BOOK)
+        .input(TWItems.COPPER_NUGGET.item())
+        .criterion("has_copper_nugget", conditionsFromItem(TWItems.COPPER_NUGGET.item()))
+        .offerTo(exporter);
+
+    // assay hammer
+    ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, TWItems.ASSAY_HAMMER.item()).pattern(" i ").pattern(" s ")
+        .pattern("s i").input('i', Items.IRON_INGOT).input('s', Items.STICK)
+        .criterion("has_iron_ingot", conditionsFromItem(Items.IRON_INGOT))
+        .offerTo(exporter);
+
     // copper nugget
     TagKey<Item> copperNuggets = TagKey.of(RegistryKeys.ITEM, new Identifier("c", "copper_nuggets"));
     ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, TWItems.COPPER_NUGGET.item(), 9).input(Items.COPPER_INGOT)

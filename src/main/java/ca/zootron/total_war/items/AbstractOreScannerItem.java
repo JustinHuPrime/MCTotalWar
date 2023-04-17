@@ -19,30 +19,20 @@
 
 package ca.zootron.total_war.items;
 
-import ca.zootron.total_war.TotalWar;
+import ca.zootron.total_war.oregen.OreMap;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.world.World;
-import vazkii.patchouli.api.PatchouliAPI;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 
-/**
- * Guidebook - created manually to be able to customize placement in creative
- * tab
- */
-public class GuidebookItem extends Item {
-  public GuidebookItem(Settings settings) {
+public abstract class AbstractOreScannerItem extends Item {
+  public AbstractOreScannerItem(Settings settings) {
     super(settings);
   }
 
-  @Override
-  public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-    if (world.isClient) {
-      PatchouliAPI.get().openBookGUI(new Identifier(TotalWar.MODID, "guidebook"));
-    }
-    return TypedActionResult.success(user.getStackInHand(hand), false);
+  protected void doScan(ServerWorld world, PlayerEntity user) {
+    Item ore = OreMap.getOre(world, user.getBlockPos());
+    int yieldMultiplier = OreMap.getYield((ServerWorld) world, user.getBlockPos());
+    user.sendMessage(Text.translatable("hud.total_war.ore_scanner_message", yieldMultiplier, ore.getName()), true);
   }
 }

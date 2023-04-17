@@ -1,5 +1,9 @@
-// 1.19.3	2023-04-15T23:41:54.224201916	Total War/Recipes
+// 1.19.3	2023-04-16T18:33:16.298913669	Total War/Recipes
+b04424fbfc6dc09c1d12c2ac2d81e56319faf9a9 data/total_war/recipes/guidebook.json
+a341d45398ca8ffbb060c3a189dd7db0ea5a1cf6 data/total_war/recipes/assay_hammer.json
 46139dcc366af838b3d43466db0f824df1f453a6 data/total_war/advancements/recipes/misc/copper_ingot.json
+431ca49c34451731f1f26fb777f70fe888dd45e3 data/total_war/advancements/recipes/tools/assay_hammer.json
 cb72129fbab5c02b38d99616d66101e55aba0612 data/total_war/recipes/copper_ingot.json
 60c857ec03da0cb3b7dba1155cc103a005d4da8e data/total_war/advancements/recipes/misc/copper_nugget.json
 7cb382e7ffea5513edd58d0d01cf9633ea44a58e data/total_war/recipes/copper_nugget.json
+f3a563351c998ccd355a98b416c91919d57aa07a data/total_war/advancements/recipes/misc/guidebook.json

@@ -48,7 +48,7 @@ public class CreativeOreFinderItem extends Item {
 
   @Override
   public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-    if (!world.isClient()) {
+    if (!world.isClient) {
       ItemStack stack = user.getStackInHand(hand);
       int newIndex = user.isSneaking() ? getIndex(stack) - 1 : getIndex(stack) + 1;
       if (newIndex >= OreMap.ORES.size()) {
